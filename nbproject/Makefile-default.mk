@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=
+SOURCEFILES_QUOTED_IF_SPACED=macro1.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=
-POSSIBLE_DEPFILES=
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/macro1.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/macro1.o.d
 
 # Object Files
-OBJECTFILES=
+OBJECTFILES=${OBJECTDIR}/macro1.o
 
 # Source Files
-SOURCEFILES=
+SOURCEFILES=macro1.asm
 
 
 
@@ -94,7 +94,23 @@ MP_PROCESSOR_OPTION=PIC16F877A
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-assembler
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/macro1.o: macro1.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/macro1.o 
+	${MP_AS} -mcpu=PIC16F877A -c \
+	-o ${OBJECTDIR}/macro1.o \
+	macro1.asm \
+	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
 else
+${OBJECTDIR}/macro1.o: macro1.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/macro1.o 
+	${MP_AS} -mcpu=PIC16F877A -c \
+	-o ${OBJECTDIR}/macro1.o \
+	macro1.asm \
+	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
 endif
 
 # ------------------------------------------------------------------------------------
