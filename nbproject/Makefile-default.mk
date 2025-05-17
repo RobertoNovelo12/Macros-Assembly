@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=macro1.asm
+SOURCEFILES_QUOTED_IF_SPACED=macro1.asm macro2.asm macro3.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/macro1.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/macro1.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/macro1.o ${OBJECTDIR}/macro2.o ${OBJECTDIR}/macro3.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/macro1.o.d ${OBJECTDIR}/macro2.o.d ${OBJECTDIR}/macro3.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/macro1.o
+OBJECTFILES=${OBJECTDIR}/macro1.o ${OBJECTDIR}/macro2.o ${OBJECTDIR}/macro3.o
 
 # Source Files
-SOURCEFILES=macro1.asm
+SOURCEFILES=macro1.asm macro2.asm macro3.asm
 
 
 
@@ -102,6 +102,22 @@ ${OBJECTDIR}/macro1.o: macro1.asm  nbproject/Makefile-${CND_CONF}.mk
 	macro1.asm \
 	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
+${OBJECTDIR}/macro2.o: macro2.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/macro2.o 
+	${MP_AS} -mcpu=PIC16F877A -c \
+	-o ${OBJECTDIR}/macro2.o \
+	macro2.asm \
+	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
+${OBJECTDIR}/macro3.o: macro3.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/macro3.o 
+	${MP_AS} -mcpu=PIC16F877A -c \
+	-o ${OBJECTDIR}/macro3.o \
+	macro3.asm \
+	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
 else
 ${OBJECTDIR}/macro1.o: macro1.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -109,6 +125,22 @@ ${OBJECTDIR}/macro1.o: macro1.asm  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC16F877A -c \
 	-o ${OBJECTDIR}/macro1.o \
 	macro1.asm \
+	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
+${OBJECTDIR}/macro2.o: macro2.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/macro2.o 
+	${MP_AS} -mcpu=PIC16F877A -c \
+	-o ${OBJECTDIR}/macro2.o \
+	macro2.asm \
+	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
+${OBJECTDIR}/macro3.o: macro3.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/macro3.o 
+	${MP_AS} -mcpu=PIC16F877A -c \
+	-o ${OBJECTDIR}/macro3.o \
+	macro3.asm \
 	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif
