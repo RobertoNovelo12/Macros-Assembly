@@ -1795,7 +1795,6 @@ secuencia_leds:
     DELAY_MS 200
     CLEAR_PIN PORTB, 3
 
-    ; Ejemplo adicional con suma de macro3.asm
     MOVLW 25
     MOVWF num1
     MOVLW 10

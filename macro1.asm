@@ -3,16 +3,15 @@ PROCESSOR 16F877A
 #include "macro2.asm"
 #include "macro3.asm"
 
-; Configuración de bits
-CONFIG CP=OFF
-CONFIG DEBUG=OFF
-CONFIG WRT=OFF
-CONFIG CPD=OFF
-CONFIG WDTE=OFF
-CONFIG LVP=OFF
-CONFIG BOREN=ON
-CONFIG PWRTE=ON
-CONFIG FOSC=XT
+; CONFIG
+  CONFIG FOSC = XT             ; Oscillator Selection bits (XT oscillator)
+  CONFIG WDTE = OFF            ; Watchdog Timer Enable bit (WDT disabled)
+  CONFIG PWRTE = ON            ; Power-up Timer Enable bit (PWRT enabled)
+  CONFIG BOREN = ON            ; Brown-out Reset Enable bit (BOR enabled)
+  CONFIG LVP = OFF             ; Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit (RB3 is digital I/O, HV on MCLR must be used for programming)
+  CONFIG CPD = OFF             ; Data EEPROM Memory Code Protection bit (Data EEPROM code protection off)
+  CONFIG WRT = OFF             ; Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
+  CONFIG CP = OFF              ; Flash Program Memory Code Protection bit (Code protection off)
 
 ; Definición de macros de control de puertos
 SETUP_PORT MACRO PORT_REG, TRIS_REG, DIR_VALUE
